@@ -1,5 +1,6 @@
 let music;
 let imgs;
+let ready = false;
 function preload() {
   music = loadSound("Yikes.mp3");
   imgs = [];
@@ -37,12 +38,14 @@ function draw() {
     background(200);
     textSize(32);
     text("Click to start", width / 2, height / 2);
+
+    ready = true;
   }
 }
 
 
 function mousePressed() {
-  if (!running) {
+  if (!running && ready) {
     running = true;
     music.loop();
   }
