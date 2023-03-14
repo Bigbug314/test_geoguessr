@@ -9,7 +9,7 @@ function preload() {
     while (name.length < 5) {
       name = "0" + name;
     }
-    imgs.push(loadImage("imgs/" + name + ".png"));
+    imgs.push(loadImage(name + ".png"));
   }
 }
 
