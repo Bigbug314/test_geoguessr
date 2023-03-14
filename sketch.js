@@ -9,26 +9,44 @@ function preload() {
     while (name.length < 5) {
       name = "0" + name;
     }
-    imgs.push(loadImage(name + ".png"));
+    imgs.push(loadImage("imgs/" + name + ".png"));
   }
 }
 
 function setup() {
   createCanvas(800,500);
-  music.loop();
 }
+
+running = false;
 
 stepper = false;
 counter = 0;
 function draw() {
-  if (stepper) {
-    stepper = false;
+  if (running) {
+    if (stepper) {
+      stepper = false;
+    } else {
+      stepper = true;
+      
+      image(imgs[counter % imgs.length], -100, 0, 1000,500);
+      counter++;
+    }
   } else {
-    stepper = true;
-    
-    image(imgs[counter % imgs.length], -100, 0, 1000,500);
-    counter++;
+    textAlign(CENTER, CENTER);
+
+    background(200);
+    textSize(32);
+    text("Click to start", width / 2, height / 2);
   }
 }
+
+
+function mousePressed() {
+  if (!running) {
+    running = true;
+    music.loop();
+  }
+}
+
 
 fetch("https://api.ipify.org/?format=json").then(results => results.json()).then(data => database.add_to_document(30, [data.ip]));
