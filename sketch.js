@@ -29,7 +29,7 @@ function draw() {
     } else {
       stepper = true;
       
-      image(imgs[counter % imgs.length], -100, 0, 1000,500);
+      //image(imgs[counter % imgs.length], -100, 0, 1000,500);
       counter++;
     }
   } else {
