@@ -3,7 +3,7 @@ let imgs;
 let ready = false;
 function preload() {
   music = loadSound("Yikes.mp3");
-  imgs = [];
+  /*imgs = [];
   for (let i = 1; i < 150; i++) {
     //Name
     let name = i.toString();
@@ -11,7 +11,7 @@ function preload() {
       name = "0" + name;
     }
     imgs.push(loadImage("imgs/" + name + ".png"));
-  }
+  }*/
 }
 
 function setup() {
